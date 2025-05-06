@@ -1,0 +1,8 @@
+global n, C[1..n], MC[0..n]
+initialize MC[1..n] to contain all zeros;
+initialize MC[0] to one;
+for i <-- 1 to n do
+    for sigma <-- C[j] to V do
+        MC[sigma] <-- MC[sigma - C[j]] + MC[sigma]
+    endfor
+endfor;
