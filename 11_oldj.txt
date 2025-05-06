@@ -1,0 +1,8 @@
+global j, n, Child[1..n], preMax[1..n]
+procedure rTbuild(oldj;;);
+    j <-- Oldj + 1;
+    while j < preMax[oldj] do
+        append j's value to Child[oldj];
+        rTbuild(j)
+    endwhile
+end_rTbuild;

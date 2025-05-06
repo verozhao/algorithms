@@ -1,0 +1,11 @@
+procedure DFS(;;u);
+    u.count <-- 0
+    foreach child w in Child[u] do
+        w.count <-- w.count + DFS(w);
+    endfor
+    if u is green then increment u.count
+    else 
+        u.count <-- 0 
+    endif;
+    return(u.count)
+end_DFS;

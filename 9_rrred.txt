@@ -1,0 +1,8 @@
+procedure rrred(;;v);
+    v.longr <-- 0;
+    foreach child w in Child[v] do
+        rrred[w]
+        v.longr <-- max(v.longr, w.longr)
+    endfor
+    if v.color == red then increment v.longr else v.longr <-- 0 endif
+end_rrred;

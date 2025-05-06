@@ -1,0 +1,25 @@
+// Stack
+
+global Stack initializing to empty
+    push T onto Stack
+    while Stack not empty do
+        u <-- pop from Stack;
+        for child w in Child[u] do
+            if w is red then push onto Stack
+            else
+                GFS(w)
+            endif
+        endfor
+    endwhile
+end_gfsDriver;
+
+procedure GFS(u);
+    u.count <-- 1;
+    foreach child w in Child[u] do
+        if w is red then push onto Stack
+        else
+            GFS(w)
+            u.count <-- u.count + w.count
+        endif
+    endfor
+end_GFS;

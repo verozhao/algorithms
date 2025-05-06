@@ -1,0 +1,15 @@
+
+global n, m, A[1..n], B[1..n], leng(i,j)
+
+function leng(i,j);
+    if i == 0 or j == 0 then return(0) endif 
+    if A[i] == B[j] then temp <-- 1 + leng(i-1, j-1) endif
+    else
+        temp1 <-- leng(i, j-1)
+        temp2 <-- leng(i-1, j)
+        if temp2 > temp1 then temp <-- temp2
+        else temp <-- temp1
+        endif
+    endif
+    return(temp)
+end_leng(i,j);

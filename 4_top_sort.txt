@@ -1,0 +1,25 @@
+// Ready Blocked inblockers
+
+procedure TopSort(;;G);
+    foreach vertex v in G do v.inblokers <-- 0 endfor;
+    foreach vertex v in G do
+        for vertex w in Adj[v] do
+            w.inblockers <-- w.inblockers + 1
+        endfor
+    endfor;
+
+    create empty set Ready;
+    create empty set Blocked;
+
+    insert each vertex v with v.inblockers equals to 0 into Ready;
+    insert each vertex v with v.inblockers not equal to 0 into Blocked;
+
+    while Ready is not empty do
+        v <-- delete_some_element_from(Ready)
+        foreach vertex w in Adj[v] do
+            w.inblockers = w.inblockers - 1
+            if w.inblokers == 0 then delete vertex w from Blocked and insert w into Ready endif
+        endfor
+    endwhile
+    if Blocked is not empty then print("the graph has a cycle") endif
+end_TopSort;

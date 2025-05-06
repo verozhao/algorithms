@@ -1,0 +1,13 @@
+procedure rrredsDriver(v);
+    set all v.longr fields to -1;
+    foreach vertex v in V do if v.longr == -1 then RRReds(v) endif endfor
+end_rrredsDriver;
+
+procedure RRReds(u);
+    v.longr <-- 0;
+    foreach vertex w in Adj[v] do 
+        if w.longr == -1 then RRReds(w) endif
+        v.longr <-- max(v.longr, w.longr)
+    endfor;
+    if v.color == red then increment v.longr else v.longr <-- 0 endif
+end_RRReds;

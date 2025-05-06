@@ -1,0 +1,17 @@
+global n, m, A[1..m], B[1..n], leng(i,j)
+global Look[1..m, 1..n] all values set to -1
+
+function leng(i,j);
+    if i == 0 or j = 0 then return(0) endif
+    temp <-- Look[i,j]
+    if temp == -1 then
+        if A[i] == B[j] then temp <-- 1 + leng(i-1,j-1)
+        else
+            temp <-- leng(i,j-1)
+            temp2 <-- leng(i-1,j)
+            if temp2 > temp then temp <-- temp2 endif
+        endif
+        Look[i,j] <-- temp
+    endif
+    return(temp)
+end_leng;

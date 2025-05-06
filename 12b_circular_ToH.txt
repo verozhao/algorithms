@@ -1,0 +1,23 @@
+procedure 1jump(n, A, B, C);
+    {A = source pole;}
+    {B = destination pole;}
+    if n == 1 then move top ring from A to B;
+    else
+        2jump(n-1, A, B, C)
+        move top ring from A to B;
+        2jump(n-1, C, A, B)
+end_1jump;
+
+procdedure 2jump(n, A, B, C);
+    {A = source pole;}
+    {B = destination pole;}
+    if n == 1 then 
+        move top ring from A to B;
+        move top ring from B to C;
+    else
+        2jump(n-1, A, B, C)
+        move top ring from A to B;
+        1jump(n-1, C, A, B)
+        move top ring from B to C;
+        2jump(n-1, A, B, C)
+end_2jump;

@@ -1,0 +1,20 @@
+// Not started Not done
+
+procedure ReverseTopSortDriver(;;D);
+    mark all vertices as not started;
+    mark all vertices as not done;
+    while there is a unstarted vertex u do
+        PostorderDFS(u);
+    endwhile
+end_ReverseTopSortDriver;
+
+procedure PostorderDFS();
+    mark v as started;
+    foreach neighbor w in Adj[v] do
+        if w is not yet started then PostorderDFS(w)
+        elif w is not yet done then execute cycle_detection_instructions
+        endif
+    endfor;
+    print(v);
+    mark v as done;
+end_PostorderDFS;

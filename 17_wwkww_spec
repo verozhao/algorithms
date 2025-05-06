@@ -1,0 +1,3 @@
+Best(l) = 
+    {0, if l=0}
+    {max_{0≤k<l}{Best{k} + val[k,l], if l>0}}

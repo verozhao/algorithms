@@ -1,0 +1,23 @@
+// v.degree, Vertex_Count, Q1, Q2
+
+create field v.degree, initializing to 0;
+create Queue Q1;
+create Queue Q2;
+
+Vertex_Count <-- |V|;
+foreach edge {u,v} in E do increment u.degree and v.degree endfor;
+foreach v in V do if v.degree <-- 1 then enqueue v into Q1 endfor;
+Vertex_Count <-- Vertex_Count - |Q1|;
+
+while Vertex_Count > 2 do
+    repeat
+        v <-- dequeue(Q1)
+        foreach neighbor w in Adj[v] do 
+            w.degree <-- w.degree - 1
+            if w.degree <-- 1 then enqueue w into Q2 endif
+        endfor;
+    until Q1 is empty;
+    empty contents of Q2 into Q1;
+    Vertex_Count <-- Vertex_Count - |Q1|
+endwhile
+print(the vertices in Q1);

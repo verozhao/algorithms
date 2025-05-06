@@ -1,0 +1,6 @@
+procedure ToH(n, A, B, C);
+    if n == 1 then move ring 1 from A to B;
+    ToH(n-1, A, C, B)
+    move ring n from A to B
+    ToH(n-1, C, B, A)
+end_ToH;

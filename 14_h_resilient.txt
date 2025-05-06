@@ -1,0 +1,17 @@
+// deleteme, h-resilient, v.counter
+
+create empty set deleteme;
+create empty set h-resilient;
+add vertices in T to h-resilient;
+
+foreach vertex v in V do
+    v.counter <-- sizeof(Adj[v])
+    if v.counter < h then move vertex v from h-resilient to deleteme endif
+endfor;
+while deleme not empty do
+    x <-- remove an element from deleteme
+    foreach neighbor y in Adj[x] do
+        if y.counter = h then move vertex y from h-resilient to deleteme endif
+        decrement y.counter
+    endfor
+endwhile

@@ -1,0 +1,8 @@
+global n, V, A[1..n], SS[0..n];
+initialize SS[1..n] to contains all zeros;
+initialize SS[0] to one;
+for j <-- 1 to n do
+    for decreasing s <-- V downonto A[j] do
+        SS[s] <-- SS[s] + SS[s-A[j]]
+    endfor
+endfor;

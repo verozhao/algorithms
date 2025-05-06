@@ -1,0 +1,3 @@
+TW(i,j) = 
+    {0, if i=j}
+    {W[i] + W[i+1] + ... + W[j] + min_{i<k≤j}(TW(i,k-1) + TW(k,j)), if i<j}

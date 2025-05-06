@@ -1,0 +1,9 @@
+procedure WTH(n, A, B, C);
+    if n == 1 then move ring 1 from A to B
+    else
+        WTH(n-1, A, C, B)
+        move top ring from A to B
+        WTH(n-1, C, A, B)
+        WTH(n-1, A, B, C)
+    endif
+end_WTH;

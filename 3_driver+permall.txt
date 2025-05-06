@@ -1,0 +1,20 @@
+// Buffer swap-recur-swap
+
+global Buffer[1..n];
+procedure PermallDriver(n;;);
+    for i <-- 1 to n do
+        Buffer[i] <-- i
+    endfor
+    Permall(n)
+end_PermallDriver;
+
+global h
+procedure Permall(h;;);
+    local i
+    if h equals zero then print Buffer[1..n] endif
+    for i <-- 1 to n do
+        swap Buffer values in location i with h
+        Permall(h-1)
+        swap Buffer values in location i with h
+    endfor
+end_Permall;
